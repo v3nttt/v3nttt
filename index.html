@@ -3,135 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>v3nttt | finds</title>
+    <title>v3nttt | HYPER FINDS</title>
     <style>
-        /* CSS - Estetyka: Minimalizm / New Wave / Technical */
+        @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;900&display=swap');
+
         body {
-            background-color: #050505;
+            background-color: #000;
+            background-image: radial-gradient(circle at 50% 50%, #111 0%, #000 100%);
             color: #fff;
-            font-family: 'Helvetica', Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            text-transform: lowercase; /* Styl małych liter jak u j3ziorrr */
+            overflow-x: hidden;
         }
 
-        /* POPUP / OKNO POWITALNE */
+        /* POPUP - ENERGETYCZNY GLOW */
         #overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 1000;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
             display: flex;
             align-items: center;
             justify-content: center;
+            backdrop-filter: blur(5px);
         }
         #popup {
-            background: #0d0d0d;
-            padding: 45px 35px;
-            border: 1px solid #222;
-            text-align: center;
-            max-width: 400px;
-            width: 85%;
-            position: relative;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-        }
-        /* Przycisk zamykania X */
-        .close-x {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            color: #444;
-            font-size: 28px;
-            cursor: pointer;
-            line-height: 1;
-            transition: 0.2s;
-        }
-        .close-x:hover { color: #fff; }
-
-        #popup h2 { font-size: 24px; margin: 0 0 10px 0; letter-spacing: -1px; }
-        #popup p { color: #777; font-size: 13px; margin-bottom: 25px; }
-        
-        /* Ramka z promocją */
-        .promo-box {
-            background: #111;
-            padding: 20px;
-            border: 1px solid #1a1a1a;
-            margin-bottom: 25px;
-        }
-        .promo-box b { display: block; color: #fff; font-size: 17px; margin-bottom: 8px; }
-        .promo-box span { color: #888; font-size: 13px; }
-        .highlight-code { color: #fff; font-weight: bold; border-bottom: 1px dashed #555; }
-
-        .aff-btn {
-            display: block;
             background: #fff;
             color: #000;
-            padding: 16px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 13px;
-            transition: 0.3s;
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            transform: rotate(-1deg); /* Lekki przechył dla energii */
+            box-shadow: 0 0 50px rgba(255,255,255,0.2);
         }
-        .aff-btn:hover { background: #ddd; transform: translateY(-2px); }
+        .close-x {
+            position: absolute;
+            top: 5px;
+            right: 15px;
+            color: #000;
+            font-size: 35px;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        #popup h2 { font-family: 'Archivo Black', sans-serif; font-size: 35px; margin: 0; line-height: 0.8; }
+        .promo-tag { background: #000; color: #fff; display: inline-block; padding: 5px 15px; font-weight: 900; margin: 20px 0; }
+        
+        .aff-btn-main {
+            display: block;
+            background: #000;
+            color: #fff;
+            padding: 15px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 16px;
+            border: 2px solid #000;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .aff-btn-main:hover { transform: scale(1.05); background: transparent; color: #000; }
 
         /* NAWIGACJA */
         nav {
             display: flex;
             justify-content: center;
-            padding: 25px;
-            border-bottom: 1px solid #111;
-            gap: 30px;
-            background: #050505;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            padding: 30px;
+            gap: 20px;
+            background: rgba(0,0,0,0.8);
+            border-bottom: 2px solid #222;
         }
-        nav a { color: #555; text-decoration: none; font-size: 12px; font-weight: 500; transition: 0.3s; }
-        nav a:hover { color: #fff; }
+        nav a { 
+            color: #fff; 
+            text-decoration: none; 
+            font-weight: 900; 
+            font-size: 13px; 
+            text-transform: uppercase;
+            padding: 8px 15px;
+            border: 1px solid transparent;
+            transition: 0.3s;
+        }
+        nav a:hover { border-color: #fff; background: #fff; color: #000; }
 
-        /* LISTA PRODUKTÓW */
-        .container {
-            max-width: 700px;
-            margin: 60px auto;
-            padding: 0 25px;
+        /* KONTENER */
+        .container { max-width: 600px; margin: 50px auto; padding: 0 20px; }
+        
+        .header-title { 
+            font-family: 'Archivo Black', sans-serif; 
+            font-size: 45px; 
+            text-align: center; 
+            margin-bottom: 40px;
+            background: -webkit-linear-gradient(#fff, #333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .section-header {
-            font-size: 13px;
-            color: #444;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
-        }
-        .product-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .product-item {
+
+        /* PRODUKTY */
+        .product-list { display: flex; flex-direction: column; gap: 15px; }
+        
+        .product-card {
             display: flex;
             align-items: center;
-            background: #0a0a0a;
-            border: 1px solid #111;
-            padding: 12px;
+            background: #111;
+            padding: 15px;
+            border: 1px solid #222;
             text-decoration: none;
             color: #fff;
-            transition: 0.2s;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .product-item:hover { border-color: #333; background: #0f0f0f; }
-        
-        .product-item img {
-            width: 65px;
-            height: 65px;
+        .product-card:hover { 
+            transform: scale(1.03); 
+            background: #fff; 
+            color: #000;
+            border-color: #fff;
+        }
+
+        .product-card img {
+            width: 70px;
+            height: 70px;
             object-fit: cover;
             margin-right: 20px;
-            border: 1px solid #1a1a1a;
+            border: 2px solid #333;
         }
-        .product-info { flex-grow: 1; }
-        .product-info .name { display: block; font-size: 14px; margin-bottom: 4px; color: #eee; }
-        .product-info .price { color: #555; font-size: 11px; }
-        
-        .buy-arrow { color: #222; font-size: 18px; padding-right: 5px; }
+
+        .product-info b { display: block; font-size: 16px; font-weight: 900; text-transform: uppercase; }
+        .product-info span { font-size: 11px; opacity: 0.6; }
+
+        .arrow { margin-left: auto; font-size: 25px; font-weight: 900; }
 
         .hidden { display: none !important; }
+
+        /* ANIMACJA WEJŚCIA */
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .product-card { animation: slideUp 0.5s ease forwards; }
+
     </style>
 </head>
 <body>
@@ -139,46 +148,38 @@
 <div id="overlay">
     <div id="popup">
         <div class="close-x" onclick="closePopup()">×</div>
-        <h2>Zgarnij swoje bonusy! </h2>
-        <p>odbierz kupony dla nowych użytkowników</p>
-        
-        <div class="promo-box">
-            <b>$410 bonus w kuponach</b>
-            <span>użyj kodu: <span class="highlight-code">lucky8</span> (-$15 wysyłka)</span>
-        </div>
-        
-        <a href="https://ikako.vip/r/nlyhaulss" class="aff-btn" target="_blank">odbierz kupony na kakobuy</a>
+        <h2>GET THE BAG!</h2>
+        <div class="promo-tag">$410 COUPONS READY</div>
+        <p style="font-weight: bold;">USE CODE: lucky8<br><span>(-$15 SHIPPING)</span></p>
+        <a href="https://ikako.vip/r/nlyhaulss" class="aff-btn-main" target="_blank">REJESTRACJA KAKOBUY</a>
     </div>
 </div>
 
 <nav>
-    <a href="#finds">linki z tiktoka</a>
     <a href="https://www.tiktok.com/@twinfashion0" target="_blank">tiktok</a>
     <a href="https://www.youtube.com/@v3nttt3" target="_blank">youtube</a>
 </nav>
 
-<div class="container" id="finds">
-    <div class="section-header">/ Linki z filmików </div>
+<div class="container">
+    <div class="header-title">V3NTTT FINDS</div>
     
     <div class="product-list">
         
-        <a href="https://ikako.vip/9dk75" class="product-item" target="_blank">
-            <img src="foliopaki.jpg" alt="foliopaki">
+        <a href="https://ikako.vip/9dk75" class="product-card">
+            <img src="foliopaki.jpg" alt="find">
             <div class="product-info">
-                <span class="name">foliopaki (shipping essentials)</span>
-                <span class="price">CNY ￥2.87 ≈ zł 1.64</span>
+                <b>FOLIOPAKI (SHIPPING)</b>
+                <span>CNY ￥2.87 ≈ zł 1.64</span>
             </div>
-            <div class="buy-arrow">→</div>
+            <div class="arrow">→</div>
         </a>
 
         </div>
 </div>
 
 <script>
-    // Funkcja zamykająca popup
     function closePopup() {
-        var overlay = document.getElementById('overlay');
-        overlay.classList.add('hidden');
+        document.getElementById('overlay').classList.add('hidden');
     }
 </script>
 
