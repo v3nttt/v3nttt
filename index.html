@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v3nttt | finds</title>
+    <style>
+        /* CSS - Minimalistyczny vibe */
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Helvetica', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-transform: lowercase;
+        }
+
+        /* popup */
+        #overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #popup {
+            background: #0a0a0a;
+            padding: 40px;
+            border: 1px solid #222;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+        }
+        /* Przycisk X */
+        .close-x {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #444;
+            font-size: 24px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .close-x:hover { color: #fff; }
+
+        #popup h2 { font-size: 24px; margin-bottom: 10px; }
+        .code-box {
+            border: 1px dashed #444;
+            padding: 10px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #fff;
+            letter-spacing: 2px;
+        }
+        .aff-btn {
+            display: block;
+            background: #fff;
+            color: #000;
+            padding: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        /* nawigacja */
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            border-bottom: 1px solid #111;
+            gap: 25px;
+            position: sticky;
+            top: 0;
+            background: #000;
+            z-index: 100;
+        }
+        nav a { color: #555; text-decoration: none; font-size: 12px; transition: 0.3s; }
+        nav a:hover { color: #fff; }
+
+        /* sekcja produkty (linki z tiktok) */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 30px;
+            border-left: 2px solid #333;
+            padding-left: 10px;
+        }
+        .product-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .product-item {
+            display: flex;
+            align-items: center;
+            background: #050505;
+            border: 1px solid #111;
+            padding: 10px;
+            text-decoration: none;
+            color: #fff;
+            transition: 0.2s;
+        }
+        .product-item:hover { border-color: #333; background: #0a0a0a; }
+        .product-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            margin-right: 20px;
+            border-radius: 2px;
+        }
+        .product-info { flex-grow: 1; }
+        .product-info span { font-size: 13px; }
+        .buy-arrow { color: #333; font-size: 18px; padding-right: 10px; }
+
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+<div id="overlay">
+    <div id="popup">
+        <div class="close-x" onclick="closePopup()">×</div>
+        <h2>$410 bonus pack</h2>
+        <p style="color: #666; font-size: 13px;">rejestracja z linku poniżej daje pakiet kuponów na start</p>
+        <div class="code-box">kod: lucky8</div>
+        <a href="https://ikako.vip/r/nlyhaulss" class="aff-btn" target="_blank">rejestracja kakobuy (kupony)</a>
+    </div>
+</div>
+
+<nav>
+    <a href="#tiktok-links">linki z tiktoka</a>
+    <a href="https://www.tiktok.com/@twinfashion0" target="_blank">tiktok</a>
+    <a href="https://www.youtube.com/@v3nttt" target="_blank">youtube</a>
+</nav>
+
+<div class="container" id="tiktok-links">
+    <div class="section-title">produkty z filmików</div>
+    
+    <div class="product-list">
+        <a href="https://ikako.vip/9dk75" class="product-item" target="_blank">
+            <img src="foliopaki.jpg" alt="foliopaki">
+            <div class="product-info">
+                <span>foliopaki (shipping essentials)</span>
+            </div>
+            <div class="buy-arrow">→</div>
+        </a>
+
+        </div>
+</div>
+
+<script>
+    function closePopup() {
+        document.getElementById('overlay').classList.add('hidden');
+    }
+</script>
+
+</body>
+</html>
